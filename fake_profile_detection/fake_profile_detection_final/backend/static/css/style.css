@@ -1,0 +1,359 @@
+/* General Layout */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom, #0d001a, #000000); /* Dark purple to black */
+  color: #ffffff;
+}
+
+h1, h2, h3, p {
+  text-align: center;
+  margin: 0 0 20px 0;
+}
+
+/* Header */
+.header-section {
+  background-color: #0d001a;
+  padding: 40px 20px;
+  box-shadow: 0 0 15px #E38B06;
+}
+
+.main-title {
+  font-size: 3rem;
+  color: #E38B06;
+  text-shadow: 0 0 8px #E38B06;
+}
+
+.sub-tag {
+  font-size: 1.2rem;
+  color: #ffffff;
+  max-width: 800px;
+  margin: 10px auto;
+}
+
+/* About Section */
+.about-section {
+  background-color: #1a0128;
+  padding: 50px 20px;
+}
+
+.about-box {
+  background-color: #2a013f;
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 800px;
+  margin: auto;
+  box-shadow: 0 0 15px #E38B06;
+}
+
+.about-box ul {
+  text-align: left;
+  font-size: 1.1rem;
+  padding-left: 20px;
+}
+
+/* What We Offer */
+.offer-section {
+  background-color: #000000;
+  color: white;
+  padding: 50px 20px;
+}
+
+.offer-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.offer-box {
+  background: #2b013d;
+  padding: 20px;
+  width: 200px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+  text-align: center;
+  box-shadow: 0 0 15px #E38B06;
+}
+
+.offer-box:hover {
+  background-color: #000000;
+  color: white;
+  box-shadow: 0 0 20px #E38B06;
+}
+
+.offer-box img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 10px;
+}
+
+/* Info Cards */
+.info-cards {
+  background-color: #000;
+  padding: 50px 20px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.info-box {
+  width: 200px;
+  height: 150px;
+  background: linear-gradient(to bottom right, #1a0128, #000000);
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  color: white;
+  position: relative;
+  transition: transform 0.3s;
+  box-shadow: 0 0 15px #E38B06;
+}
+
+.info-box:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 20px #E38B06;
+}
+
+.info-box .hover-popup {
+  display: none;
+  position: absolute;
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #0d001a;
+  color: #fff;
+  padding: 15px;
+  width: 240px;
+  border-radius: 10px;
+  box-shadow: 0 0 12px #E38B06;
+  z-index: 9999;
+  font-size: 0.9rem;
+}
+
+.info-box:hover .hover-popup {
+  display: block;
+}
+
+.hover-popup ul {
+  text-align: left;
+  padding-left: 20px;
+}
+
+/* Graph Section */
+.graph-section {
+  background: #000000;
+  padding: 50px 20px;
+  color: #fff;
+}
+
+/* NEW: Keep graphs in one horizontal row */
+.graph-grid {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+.graph-card {
+  background: #1a0128;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 0 15px #E38B06;
+  cursor: pointer;
+  flex: 0 0 auto;
+}
+
+.graph-card img {
+  width: 260px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.graph-card p {
+  font-weight: bold;
+  color: #ffffff;
+}
+
+/* Global Stats Section */
+.stats-section {
+  background: #000;
+  padding: 50px 20px;
+  color: #fff;
+  text-align: center;
+}
+
+/* NEW: Keep counters in one horizontal row */
+.counter-grid {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
+.counter-card {
+  background: #1a0128;
+  border: 2px solid #E38B06;
+  padding: 20px;
+  width: 200px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px #E38B06;
+  flex: 0 0 auto;
+}
+
+.counter-card p {
+  margin: 0;
+  font-weight: bold;
+  color: #fff;
+}
+
+.counter-card .count {
+  display: block;
+  font-size: 1.8rem;
+  margin-top: 10px;
+  color: #E38B06;
+}
+
+/* Security Section */
+.security-section {
+  background: #0d001a;
+  color: #fff;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.security-box {
+  max-width: 800px;
+  margin: auto;
+  text-align: left;
+  padding: 25px;
+  border: 2px solid #E38B06;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #E38B06;
+}
+
+/* Educational Articles Section */
+.education-section {
+  background: #1a0128;
+  color: white;
+  padding: 50px 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.education-card {
+  background: #2a013f;
+  border: 2px solid #E38B06;
+  padding: 25px;
+  border-radius: 10px;
+  width: 280px;
+  box-shadow: 0 0 15px #E38B06;
+  text-align: center;
+  font-weight: bold;
+  position: relative;
+  cursor: pointer;
+  z-index: 2;
+  flex: 1 1 280px;
+  max-width: 300px;
+}
+
+.hover-popup-card {
+  display: none;
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #0d001a;
+  color: #fff;
+  padding: 15px;
+  width: 250px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #E38B06;
+  z-index: 9999;
+  font-size: 0.9rem;
+}
+
+.education-card:hover .hover-popup-card {
+  display: block;
+}
+
+/* About Us Section */
+.about-us {
+  background-color: #0d001a;
+  padding: 50px 20px;
+  border-top: 4px solid #E38B06;
+  color: #ffffff;
+  box-shadow: 0 0 15px #E38B06;
+}
+
+.about-us h2 {
+  color: #E38B06;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.about-text {
+  max-width: 800px;
+  margin: auto;
+  text-align: left;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Footer */
+footer {
+  background-color: #000000;
+  color: #ffffff;
+  text-align: center;
+  padding: 25px;
+  box-shadow: 0 0 15px #E38B06;
+}
+
+/* Back to Top Button */
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 25px;
+  background: #E38B06;
+  color: white;
+  padding: 12px 18px;
+  font-size: 20px;
+  text-decoration: none;
+  border-radius: 50%;
+  font-weight: bold;
+  box-shadow: 0 0 15px #E38B06;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.95);
+}
+.modal-content {
+  display: block;
+  margin: auto;
+  max-width: 90%;
+  max-height: 80%;
+}
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}

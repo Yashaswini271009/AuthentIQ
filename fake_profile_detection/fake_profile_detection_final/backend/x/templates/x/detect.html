@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Twitter (X) Fake Profile Detection</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: radial-gradient(circle at top left, rgba(255,140,0,0.3), transparent 60%), 
+                        radial-gradient(circle at bottom right, rgba(255,140,0,0.3), transparent 60%),
+                        linear-gradient(180deg, #3d0066, #1b0032, #000000); /* Purple gradient + orange glow */
+            margin: 0;
+            padding: 0;
+            color: #ffffff; /* White text for readability */
+            min-height: 100vh; /* Full screen height */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            max-width: 600px;
+            background: #1c1c1c; /* Deep blackish background */
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 25px rgba(255,140,0,0.5), /* Orange glow */
+                        0 0 15px rgba(128,0,128,0.6);  /* Purple glow */
+            text-align: center;
+        }
+        h1 {
+            color: #d1a3ff; /* Light purple */
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            padding: 12px;
+            width: 70%;
+            border-radius: 8px;
+            border: 1px solid #7a1fa2; /* Purple border */
+            margin-bottom: 20px;
+            font-size: 16px;
+            background-color: #2e003e; /* Dark purple input */
+            color: #ffffff;
+        }
+        input[type="text"]::placeholder {
+            color: #b080d7; /* Light purple placeholder */
+        }
+        button {
+            padding: 12px 25px;
+            background-color: #7a1fa2; /* Purple button */
+            border: none;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        button:hover {
+            background-color: #9c27b0; /* Brighter purple on hover */
+        }
+        img {
+            margin-top: 20px;
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border: 2px solid #9c27b0; /* Purple border */
+        }
+        .result {
+            margin-top: 30px;
+            text-align: left;
+            color: #e0d7ff; /* Light purple for text */
+        }
+        .error {
+            color: #ff4d4d;
+            font-weight: bold;
+        }
+        .fake {
+            color: #ff4d4d;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        .real {
+            color: #4caf50;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        .profile-data {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #e0d7ff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Twitter (X) Fake Profile Detection</h1>
+
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="Enter Twitter username" required>
+            <br>
+            <button type="submit">Detect</button>
+        </form>
+
+        {% if error %}
+            <div class="error">
+                <p>{{ error }}</p>
+            </div>
+        {% endif %}
+
+        {% if result %}
+            <div class="result">
+                <img src="{{ result.user_data.profile_image_url }}" alt="Profile Picture">
+
+                <h2>@{{ result.username }}</h2>
+
+                {% if result.classification == 'Fake Profile' %}
+                    <p class="fake">{{ result.classification }}</p>
+                {% else %}
+                    <p class="real">{{ result.classification }}</p>
+                {% endif %}
+
+                <div class="profile-data">
+                    <p><strong>Fakeness Score:</strong> {{ result.fakeness_percentage }}%</p>
+                    <p><strong>Name:</strong> {{ result.user_data.name }}</p>
+                    <p><strong>Bio:</strong> {{ result.user_data.description }}</p>
+                    <p><strong>Followers:</strong> {{ result.user_data.followers_count }}</p>
+                    <p><strong>Following:</strong> {{ result.user_data.following_count }}</p>
+                    <p><strong>Tweets:</strong> {{ result.user_data.tweet_count }}</p>
+                    <p><strong>Account Created:</strong> {{ result.user_data.created_at }}</p>
+                </div>
+            </div>
+        {% endif %}
+         <a href="{% url 'home' %}" 
+           style="display: inline-block; background-color: #7a1fa2; color: white; padding: 12px 25px;
+                  border-radius: 8px; text-decoration: none; font-size: 16px; margin-top: 20px;
+                  transition: background-color 0.3s ease;">
+            🏠 Back to Home
+        </a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Instagram Fake Profile Detector</title>
+    <style>
+        body {
+            font-family: "Segoe UI", sans-serif;
+            background: radial-gradient(circle at top left, rgba(255,140,0,0.3), transparent 60%), 
+                        radial-gradient(circle at bottom right, rgba(255,140,0,0.3), transparent 60%),
+                        linear-gradient(180deg, #3d0066, #1b0032, #000000); /* Purple gradient + orange glow */
+            padding: 30px;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+        }
+        .container {
+            background: #1c1c1c; /* Dark background for contrast */
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 0 25px rgba(255,140,0,0.5), /* Orange glow */
+                        0 0 15px rgba(128,0,128,0.6);  /* Purple glow */
+            text-align: center;
+        }
+        h1 {
+            color: #d1a3ff; /* Light purple */
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 8px;
+            color: #e0d7ff;
+            text-align: left;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 18px;
+            border: 1px solid #7a1fa2;
+            border-radius: 8px;
+            font-size: 1em;
+            background-color: #2e003e;
+            color: #fff;
+        }
+        input[type="text"]::placeholder {
+            color: #b080d7;
+        }
+        button {
+            background-color: #7a1fa2;
+            color: white;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            width: 100%;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #9c27b0;
+        }
+        .note {
+            margin-top: 12px;
+            font-size: 0.9em;
+            color: #e0d7ff;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Detect Fake Instagram Profiles</h1>
+    <form method="POST" action="{% url 'instagram:detect' %}">
+        {% csrf_token %}
+        <label for="username">Instagram Username:</label>
+        <input type="text" id="username" name="username" placeholder="e.g. john_doe123" required>
+
+        <button type="submit">Detect Profile</button>
+    </form>
+    <p class="note">We'll automatically fetch and analyze the profile details.</p>
+</div>
+
+</body>
+</html>

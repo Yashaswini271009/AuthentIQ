@@ -1,0 +1,118 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>X (Twitter) Detection</title>
+  <style>
+    /* Background: Black → Purple gradient */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #0d001a, #1a0033, #000000);
+      background-size: 400% 400%;
+      animation: gradientMove 12s ease infinite;
+      color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Overlay Box */
+    .overlay {
+      background: rgba(10, 10, 10, 0.95);
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 0 40px rgba(255, 140, 0, 0.8);
+      max-width: 550px;
+      text-align: center;
+      transition: 0.3s ease;
+    }
+
+    .overlay:hover {
+      box-shadow: 0 0 60px rgba(255, 140, 0, 1);
+    }
+
+    /* Title */
+    .detect-title {
+      font-size: 30px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #a64dff;
+      text-shadow: 0 0 20px rgba(255, 140, 0, 1);
+    }
+
+    /* Info Section */
+    .detect-info {
+      text-align: left;
+      margin-top: 20px;
+    }
+
+    .detect-info ul {
+      padding-left: 20px;
+      line-height: 1.6;
+      color: #e0e0e0;
+      font-size: 15px;
+    }
+
+    /* Button Group */
+    .btn-group {
+      margin-top: 30px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .detect-btn {
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 10px;
+      background: #4b0082; /* Deep purple base */
+      color: #fff;
+      font-weight: bold;
+      box-shadow: 0 0 20px rgba(255, 140, 0, 0.8);
+      transition: all 0.4s ease;
+    }
+
+    .detect-btn:hover {
+      background: #5e00b3;
+      box-shadow: 0 0 30px rgba(255, 165, 0, 1);
+      transform: scale(1.08);
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <h1 class="detect-title">X (Twitter) Fake Profile Detection</h1>
+    <div class="detect-info">
+      <ul>
+        <li>Fake X profiles retweet spam links from fake news outlets.</li>
+        <li>Usernames are often long or random with no real meaning.</li>
+        <li>Fake bios overuse hashtags and emojis to appear trendy.</li>
+        <li>Profile pictures are often avatars or celebrity photos.</li>
+        <li>Accounts may tweet controversial political spam or crypto bait.</li>
+        <li>Low-quality replies and retweets are a red flag.</li>
+        <li>They post inhumanly fast — hundreds of tweets per day.</li>
+        <li>Fake bots reply “DM me” under viral tweets to scam users.</li>
+        <li>They often impersonate journalists, agencies or influencers.</li>
+        <li>New accounts posting heavy opinion or promotions are suspicious.</li>
+        <li>AuthentIQ tracks reply/follow ratios, API behavior and tweet patterns.</li>
+        <li>We detect GPT/AI-written threads and reused tweet chains.</li>
+        <li>Many fake X profiles link to Telegram, adult or promo sites.</li>
+        <li>Imposter accounts use l instead of I, or 0 instead of o (e.g., ElonMu5k).</li>
+        <li>AuthentIQ flags suspicious behavior in real time.</li>
+      </ul>
+      <div class="btn-group">
+        <a href="/x/detect/" class="detect-btn">🚀 Detect Now</a>
+        <a href="/" class="detect-btn">← Back to Home</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
