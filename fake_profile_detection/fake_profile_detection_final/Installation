@@ -1,0 +1,8 @@
+## Installation
+git clone https://github.com/Yashaswini271009/fake-profile-detection.git
+cd fake-profile-detection
+pip install -r requirements.txt
+python manage.py runserver
+
+Open:
+http://127.0.0.1:8000
